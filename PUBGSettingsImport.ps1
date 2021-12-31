@@ -89,19 +89,8 @@ $winApi = add-type -name user32 -namespace tq84 -passThru -memberDefinition '
 '
 
 $SPI_SETMOUSESPEED = 0x0071
-
-"MouseSensitivity before WinAPI call:  $((get-itemProperty 'hkcu:\Control Panel\Mouse').MouseSensitivity)"
-
 $null = $winApi::SystemParametersInfo($SPI_SETMOUSESPEED, 0, $newSpeed, 0)
-
-#
-#    Calling SystemParametersInfo() does not permanently store the modification
-#    of the mouse speed. It needs to be changed in the registry as well
-#
-"MouseSensitivity after WinAPI call:  $((get-itemProperty 'hkcu:\Control Panel\Mouse').MouseSensitivity)"
-
-set-itemProperty 'hkcu:\Control Panel\Mouse' -name MouseSensitivity -value $newSpeed
-
+set-itemProperty 'hkcu:\Control Panel\Mouse' -name MouseSensitivity -value $newSpeed -ErrorAction SilentlyContinue | Out-Null
 
 ###############################################################################
 # DISABLE WINDOWS POINTER PRECISION
@@ -111,9 +100,7 @@ $code=@'
  public static extern bool SystemParametersInfo(uint uiAction, uint uiParam, int[] pvParam, uint fWinIni);
 '@
 Add-Type $code -name Win32 -NameSpace System
-
-[System.Win32]::SystemParametersInfo(4,0,0,2)
-
+[System.Win32]::SystemParametersInfo(4,0,0,2) | Out-Null
 
 ###############################################################################
 # RESTORE DESIRED PUBG MOUSE SETTINGS
@@ -180,3 +167,5 @@ $GameUserSettings2 = $GameUserSettings2 -replace "bShowNetworkInfo=(True|False)"
 
 # Commit Change to PUBG Settings File
 $GameUserSettings2 | Out-File -FilePath "$($FileName)"
+
+write-host "Settings applied to windows and pubg preference file $($FileName)."
