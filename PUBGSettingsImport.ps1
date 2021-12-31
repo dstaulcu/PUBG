@@ -16,25 +16,14 @@ $newSpeed = 11
 # Path to PUBG Game User Settings file
 $FileName = "$($env:localappdata)\TslGame\Saved\Config\WindowsNoEditor\GameUserSettings.ini"
 
-$FpsCameraFov = "103.000000" # FPP Camera FOV
-$MouseVerticalSensitivityMultiplierAdjusted = "1.000000" # Vertical Sensitivity Multiplier
-$Normal = "32.000000" # General Sensitivity
-$Targeting = "32.000000" # Aim Sensitivity
-$ScopingMagnified = "42.000000"  # Scoping Sensitivity - WackyJacky's preference is 32
-$Scope2X = "32.000000"
-$Scope3X = "32.000000"
-$Scope4X = "32.000000"
-$Scope6X = "32.000000"
-$Scope8X = "32.000000"
-$Scope15X = "32.000000"
-$Scoping = "32.000000" # ADS Sensitivity
-$bIsUsingPerScopeMouseSensitivity = "False"
-$bIsEnabledHrtfRemoteWeaponSound = "True" 
+# PUBG SETTINGS --> GRAPHICS --> DISPLAY SETTINGS
 $LobbyFrameRateLimitType = "Fixed_60"
 $InGameFrameRateLimitType = "Unlimited"
 $bUseInGameSmoothedFrameRate = "False"
+
+# PUBG SETTINGS --> GRAPHICS --> ADVANCED SETTINGS
 $ScreenScale = "100.000000"
-$FpsCameraFov = "103.000000"
+$FpsCameraFov = "103.000000" # FPP Camera FOV
 $sgAntiAliasingQuality = 4 # 1 for Low, 4 for Ultra, etc.
 $sgPostProcessQuality = 1
 $sgShadowQuality = 1
@@ -45,6 +34,25 @@ $sgViewDistanceQuality = 2
 $bSharpen = "False"
 $bUseVSync = "False"
 $bMotionBlur = "False"
+
+# PUBG SETTINGS --> AUDIO --> SOUND
+$bIsEnabledHrtfRemoteWeaponSound = "True" 
+
+# PUBG SETTINGS --> CONTROLS --> MOUSE
+$Normal = "32.000000" # General Sensitivity
+$MouseVerticalSensitivityMultiplierAdjusted = "1.000000" # Vertical Sensitivity Multiplier
+$Targeting = "32.000000" # Aim Sensitivity
+$Scoping = "32.000000" # ADS Sensitivity
+$ScopingMagnified = "42.000000"  # Scoping Sensitivity - WackyJacky's preference is 32
+$bIsUsingPerScopeMouseSensitivity = "False" # Universal Sensitivtiy for All Scopes
+$Scope2X = "32.000000"
+$Scope3X = "32.000000"
+$Scope4X = "32.000000"
+$Scope6X = "32.000000"
+$Scope8X = "32.000000"
+$Scope15X = "32.000000"
+
+# PUBG SETTINGS --> GAMEPLAY --> UI
 $CrosshairColorString = "CUSTOM"
 $CustomCrosshairColor = "(B=0,G=0,R=255,A=255)"
 
