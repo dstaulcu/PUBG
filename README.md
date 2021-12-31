@@ -1,6 +1,6 @@
 # PUBG Settings Import
 
-A powershell script that sets preferences for certain mouse, audio and display settings in Windows and in the PUBG Battlegrounds game.
+A powershell script that optimizes mouse, audio and display settings for PUBG Battlegrounds gaming.
 
 Initial settings derived from @WackyJacky101 youtube videos:
 
