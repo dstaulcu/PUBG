@@ -16,26 +16,26 @@ $newSpeed = 11
 # Path to PUBG Game User Settings file
 $FileName = "$($env:localappdata)\TslGame\Saved\Config\WindowsNoEditor\GameUserSettings.ini"
 
-$FpsCameraFov = "103.000000"
-$MouseVerticalSensitivityMultiplierAdjusted = "1.000000"
-$Normal = "32.000000" # General Sensivity
-$Targeting = "32.000000"
-$ScopingMagnified = "42.000000"  # ScopingSensitivity - WackyJacky's preference is 32
+$FpsCameraFov = "103.000000" # FPP Camera FOV
+$MouseVerticalSensitivityMultiplierAdjusted = "1.000000" # Vertical Sensitivity Multiplier
+$Normal = "32.000000" # General Sensitivity
+$Targeting = "32.000000" # Aim Sensitivity
+$ScopingMagnified = "42.000000"  # Scoping Sensitivity - WackyJacky's preference is 32
 $Scope2X = "32.000000"
 $Scope3X = "32.000000"
 $Scope4X = "32.000000"
 $Scope6X = "32.000000"
 $Scope8X = "32.000000"
 $Scope15X = "32.000000"
-$Scoping = "32.000000"
+$Scoping = "32.000000" # ADS Sensitivity
 $bIsUsingPerScopeMouseSensitivity = "False"
-$bIsEnabledHrtfRemoteWeaponSound = "True"  # HRTF
+$bIsEnabledHrtfRemoteWeaponSound = "True" 
 $LobbyFrameRateLimitType = "Fixed_60"
 $InGameFrameRateLimitType = "Unlimited"
 $bUseInGameSmoothedFrameRate = "False"
 $ScreenScale = "100.000000"
 $FpsCameraFov = "103.000000"
-$sgAntiAliasingQuality = 4
+$sgAntiAliasingQuality = 4 # 1 for Low, 4 for Ultra, etc.
 $sgPostProcessQuality = 1
 $sgShadowQuality = 1
 $sgTextureQuality = 4
@@ -61,7 +61,6 @@ $winApi = add-type -name user32 -namespace tq84 -passThru -memberDefinition '
 '
 
 $SPI_SETMOUSESPEED = 0x0071
-
 
 "MouseSensitivity before WinAPI call:  $((get-itemProperty 'hkcu:\Control Panel\Mouse').MouseSensitivity)"
 
