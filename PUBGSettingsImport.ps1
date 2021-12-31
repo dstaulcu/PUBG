@@ -45,7 +45,27 @@ $sgViewDistanceQuality = 2
 $bSharpen = "False"
 $bUseVSync = "False"
 $bMotionBlur = "False"
+$CrosshairColorString = "CUSTOM"
+$CustomCrosshairColor = "(B=0,G=0,R=255,A=255)"
 
+# PUBG SETTINGS --> GAMEPLAY --> FUNCTIONALITIES
+$bUseFreeLookInterp = "True"  # Free Look
+$bAutoReloadOnOutOfAmmoFire = "False"   # Auto Reload
+$HGsFiringMode = "Normal"
+$SMGsFiringMode = "FullAuto"
+$ARsFiringMode = "FullAuto"
+$DMRsFiringMode = "Normal"
+$SecondarySMGsFiringMode = "Burst"
+$SecondaryARsFiringMode = "Burst"
+$bAutoEquipAttachmentByInteraction = "True"
+$bAutoEquipAttachmentFromInventory = "True"
+
+# PUBG SETTINGS --> GAMEPLAY --> REPLAY
+$bUseClientReplay = "False"
+$bUseKillCam = "False"
+
+# PUBG SETTINGS --> GAMEPLAY --> NETWORK
+$bShowNetworkInfo = "True"
 
 ###############################################################################
 # SET WINDOWS MOUSE SPEED
@@ -133,6 +153,22 @@ $GameUserSettings2 = $GameUserSettings2 -replace "sg\.ViewDistanceQuality=.*","s
 $GameUserSettings2 = $GameUserSettings2 -replace "bSharpen=(True|False)","bSharpen=$($bSharpen)"
 $GameUserSettings2 = $GameUserSettings2 -replace "bUseVSync=(True|False)","bUseVSync=$($bUseVSync)"
 $GameUserSettings2 = $GameUserSettings2 -replace "bMotionBlur=(True|False)","bMotionBlur=$($bMotionBlur)"
+$GameUserSettings2 = $GameUserSettings2 -replace "bMotionBlur=(True|False)","bMotionBlur=$($bMotionBlur)"
+$GameUserSettings2 = $GameUserSettings2 -replace "bUseClientReplay=(True|False)","bUseClientReplay=$($bUseClientReplay)"
+$GameUserSettings2 = $GameUserSettings2 -replace "bUseKillCam=(True|False)","bUseKillCam=$($bUseKillCam)"
+$GameUserSettings2 = $GameUserSettings2 -replace "CrosshairColorString=.*","CrosshairColorString=$($CrosshairColorString)"
+$GameUserSettings2 = $GameUserSettings2 -replace "CustomCrosshairColor=.*","CustomCrosshairColor=$($CustomCrosshairColor)"
+$GameUserSettings2 = $GameUserSettings2 -replace "bUseFreeLookInterp=.*","bUseFreeLookInterp=$($bUseFreeLookInterp)"
+$GameUserSettings2 = $GameUserSettings2 -replace "bAutoReloadOnOutOfAmmoFire=(True|False)","bAutoReloadOnOutOfAmmoFire=$($bAutoReloadOnOutOfAmmoFire)"
+$GameUserSettings2 = $GameUserSettings2 -replace "HGsFiringMode=(Normal|FullAuto|Burst)","HGsFiringMode=$($HGsFiringMode)"
+$GameUserSettings2 = $GameUserSettings2 -replace "SMGsFiringMode=(Normal|FullAuto|Burst)","SMGsFiringMode=$($SMGsFiringMode)"
+$GameUserSettings2 = $GameUserSettings2 -replace "ARsFiringMode=(Normal|FullAuto|Burst)","ARsFiringMode=$($ARsFiringMode)"
+$GameUserSettings2 = $GameUserSettings2 -replace "DMRsFiringMode=(Normal|FullAuto|Burst)","DMRsFiringMode=$($DMRsFiringMode)"
+$GameUserSettings2 = $GameUserSettings2 -replace "SecondarySMGsFiringMode=(Normal|FullAuto|Burst)","SecondarySMGsFiringMode=$($SecondarySMGsFiringMode)"
+$GameUserSettings2 = $GameUserSettings2 -replace "SecondaryARsFiringMode=(Normal|FullAuto|Burst)","SecondaryARsFiringMode=$($SecondaryARsFiringMode)"
+$GameUserSettings2 = $GameUserSettings2 -replace "bAutoEquipAttachmentByInteraction=(True|False)","bAutoEquipAttachmentByInteraction=$($bAutoEquipAttachmentByInteraction)"
+$GameUserSettings2 = $GameUserSettings2 -replace "bAutoEquipAttachmentFromInventory=(True|False)","bAutoEquipAttachmentFromInventory=$($bAutoEquipAttachmentFromInventory)"
+$GameUserSettings2 = $GameUserSettings2 -replace "bShowNetworkInfo=(True|False)","bShowNetworkInfo=$($bShowNetworkInfo)"
 
 # Commit Change to PUBG Settings File
 $GameUserSettings2 | Out-File -FilePath "$($FileName)"
