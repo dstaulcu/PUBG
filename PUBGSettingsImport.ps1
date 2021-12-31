@@ -1,45 +1,35 @@
+<#
+Initial settings derived from @WackyJacky101 youtube videos:
+-[MY PUBG SETTINGS - Showing and explaining all my settings](https://youtu.be/MddquVCgYGY) - 2019-08-24
+-[ALL MY SETTINGS - Mouse/Keybindings/Sound + MY GEAR - PUBG](https://youtu.be/yLjXnXurLlo) - 2020-09-17
+#>
 
-set-strictMode -version latest
+Set-strictMode -version latest
 
 ###############################################################################
 # CONSTANTS
 ###############################################################################
 
-<# TO DO:
-Mouse/Audio:
--https://www.bing.com/videos/search?q=wackyjacky+mouse+settings&view=detail&mid=B1E4986121E9490ED0E9B1E4986121E9490ED0E9&FORM=VIRE
--Crouch
--ADS
--Peek
+# Windows Mouse Speed (0-20)
+$newSpeed = 11 
 
-Display:
--https://www.bing.com/videos/search?q=wackyjacky+pubg+display+settings&view=detail&mid=DE0979137FC96F0821F9DE0979137FC96F0821F9&FORM=VIRE
-#>
-
-$newSpeed = 11
+# Path to PUBG Game User Settings file
 $FileName = "$($env:localappdata)\TslGame\Saved\Config\WindowsNoEditor\GameUserSettings.ini"
 
 $FpsCameraFov = "103.000000"
 $MouseVerticalSensitivityMultiplierAdjusted = "1.000000"
-
-$AimSensitivity = "32.000000"
-$ADSSensitivity = "32.000000"
-
 $Normal = "32.000000" # General Sensivity
-$Targeting = "32.000000" # ADS Sensitivty
-$ScopingMagnified = "32.000000" # Scoping Sensitivty
+$Targeting = "32.000000"
+$ScopingMagnified = "32.000000"
 $Scope2X = "32.000000"
 $Scope3X = "32.000000"
 $Scope4X = "32.000000"
 $Scope6X = "32.000000"
 $Scope8X = "32.000000"
 $Scope15X = "32.000000"
-$Scoping = "32.000000"  # ADS Sensitivty
-
+$Scoping = "32.000000"
 $bIsUsingPerScopeMouseSensitivity = "False"
-
 $bIsEnabledHrtfRemoteWeaponSound = "True"  # HRTF
-
 $LobbyFrameRateLimitType = "Fixed_60"
 $InGameFrameRateLimitType = "Unlimited"
 $bUseInGameSmoothedFrameRate = "False"
@@ -145,5 +135,5 @@ $GameUserSettings2 = $GameUserSettings2 -replace "bSharpen=(True|False)","bSharp
 $GameUserSettings2 = $GameUserSettings2 -replace "bUseVSync=(True|False)","bUseVSync=$($bUseVSync)"
 $GameUserSettings2 = $GameUserSettings2 -replace "bMotionBlur=(True|False)","bMotionBlur=$($bMotionBlur)"
 
-# Commit Change
+# Commit Change to PUBG Settings File
 $GameUserSettings2 | Out-File -FilePath "$($FileName)"
