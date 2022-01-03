@@ -73,7 +73,7 @@ $bUseClientReplay = "False"
 $bUseKillCam = "False"
 
 # PUBG SETTINGS --> GAMEPLAY --> NETWORK
-$bShowNetworkInfo = "True"
+$bShowNetworkInfo = "False"
 
 ###############################################################################
 # SET WINDOWS MOUSE SPEED
