@@ -1,4 +1,4 @@
-﻿# Self-elevate the script if required
+# Self-elevate the script if required
 if (-Not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] 'Administrator')) {
  if ([int](Get-CimInstance -Class Win32_OperatingSystem | Select-Object -ExpandProperty BuildNumber) -ge 6000) {
   $CommandLine = "-File `"" + $MyInvocation.MyCommand.Path + "`" " + $MyInvocation.UnboundArguments
@@ -16,7 +16,7 @@ $StartStateExpected443ConnectionCount = 8 # number of port 443 connections expec
 $StartTime = Get-Date
 
 # main
-write-host "$(get-date) - Killing Steam and PUBG related processes."
+write-host "$(get-date) - Killing any existing Steam and PUBG related processes."
 get-process ("steam*","gldriverquery*","vulkandriverquery*","execpubg*","tslgame*","ucsvc*","x64launcher*","x86launcher*","zksvc*","ucldr_battlegrounds*","beservice*","easyanticheat*") | stop-process -force -ErrorAction SilentlyContinue
 & fltmc unload BEDaisy | Out-Null
 
@@ -31,11 +31,13 @@ foreach ($movie in $movies) {
     }
 }
 
-write-host "$(get-date) - Restarting steam game with gameid $($gameid)."
+write-host "$(get-date) - Starting steam game with gameid $($gameid)."
 Start-Process -FilePath "steam://rungameid/$($gameid)"
 
-write-host "$(get-date) - Taking a moment for previous tcp connections to clear."
+<#
+write-host "$(get-date) - Waiting for previous tcp connections to clear."
 Start-Sleep -Seconds 5
+#>
 
 write-host "$(get-date) - Waiting for lobby to load."
 $GameConnectedStatus = $false
@@ -61,5 +63,5 @@ until ($GameConnectedStatus -eq $true)
 
 # write summary of restart duration to screen
 $TimeSpan = New-TimeSpan -Start $StartTime
-write-host "$(get-date) - Restart operation completed after $($TimeSpan)."
+write-host "$(get-date) - Game startup operation completed after $($TimeSpan)."
 Read-Host -Prompt "Press Enter to continue..." | Out-Null
