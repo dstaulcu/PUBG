@@ -169,3 +169,26 @@ $GameUserSettings2 = $GameUserSettings2 -replace "bShowNetworkInfo=(True|False)"
 $GameUserSettings2 | Out-File -FilePath "$($FileName)"
 
 write-host "Settings applied to windows and pubg preference file $($FileName)."
+
+
+# Also make sure soundlock settings are as preferred
+$SL_Path = 'C:\Program Files (x86)\3 APPES\Sound Lock\SoundLock.exe'
+$SL_AlwaysOnTop = 0
+$SL_AutoEnable = 1
+$SL_Channels = 16383  # Not yet sure what this value means
+$SL_Mode = 0
+$SL_SoundLevel  = 45
+
+# stop the process
+Get-Process 'SoundLock' | Stop-Process -Force
+
+# Apply the preferred settings
+set-itemProperty 'hkcu:\Software\3APPES\SoundLock' -name 'AlwaysOnTop' -value $SL_AlwaysOnTop -ErrorAction SilentlyContinue | Out-Null
+set-itemProperty 'hkcu:\Software\3APPES\SoundLock' -name 'AutoEnable' -value $SL_AutoEnable -ErrorAction SilentlyContinue | Out-Null
+set-itemProperty 'hkcu:\Software\3APPES\SoundLock' -name 'Channels' -value $SL_Channels -ErrorAction SilentlyContinue | Out-Null
+set-itemProperty 'hkcu:\Software\3APPES\SoundLock' -name 'Mode' -value $SL_Mode -ErrorAction SilentlyContinue | Out-Null
+set-itemProperty 'hkcu:\Software\3APPES\SoundLock' -name 'SoundLevel' -value $SL_SoundLevel -ErrorAction SilentlyContinue | Out-Null
+
+# Restart the process
+Start-Process -FilePath $SL_Path
+
